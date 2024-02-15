@@ -7,6 +7,7 @@ package daw;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -29,6 +30,14 @@ public class Main {
         Set<String> listadoDestino = destinosDiferentes(uno);
         System.out.println("Mostrar Set Destinos: ");
         System.out.println(listadoDestino.toString());
+        
+        //Probar Método tres
+        Map<String,Integer> listadoViajeros = numeroViajeros(uno);
+        System.out.println(listadoViajeros.toString());
+        
+        System.out.println("Recorrido del set con un iterador -----------------");
+        // Se puede recorrer el set con un iterador
+        //En proceso
 
     }
     //----------------------------------------
@@ -77,6 +86,22 @@ public class Main {
     // para saber por cada ciudad destino el número total de viajeros que llegan ese día
     // Usa el método en el main, obten las claves de la estructura devuelta e iterando por ellas imprime 
     // el número de viajeros por ciudad
+    
+    public static Map<String, Integer> numeroViajeros(List<Viaje> lista) {
+        Map<String, Integer> listaViajeros = new HashMap<>();
+        for (int i = 0; i < lista.size(); i++) {//Recorro la lista
+            //Si exite ya, le añade una cantidad más
+            if (listaViajeros.containsKey(lista.get(i).destino())) {
+                listaViajeros.replace(lista.get(i).destino(),
+                        listaViajeros.get(lista.get(i).destino())
+                                +lista.get(i).numeroPasajeros());
+            } else { //Si no existe la añade
+                listaViajeros.put(lista.get(i).destino(),lista.get(i).numeroPasajeros());
+            }
+        }
+        return listaViajeros;
+    }
+    
     // D.- Crea un método que reciba la lista y la ordene por destino y si hay
     // destinos iguales se ordenan por número de viajeros. Usa el método en el main
     // e imprime el resultado usando foreach con expresión lambda, para obtener
