@@ -6,8 +6,10 @@ package daw;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -22,6 +24,11 @@ public class Main {
         uno.toString();
         Map<String, Integer> listaViajes = numeroViajes(uno);
         System.out.println(listaViajes.toString());
+        
+        //Probar Método dos
+        Set<String> listadoDestino = destinosDiferentes(uno);
+        System.out.println("Mostrar Set Destinos: ");
+        System.out.println(listadoDestino.toString());
 
     }
     //----------------------------------------
@@ -56,6 +63,16 @@ public class Main {
     // B.- Crea un método que reciba la lista y devuelva una estructura de datos/colección 
     // con todos los destinos diferentes. Usa el método en el main
     // e imprime el resultado usando un iterador
+    
+    //Lo haré con un Set, así solo tengo que añadir sin preocuparme de si se 
+    //repiten o no, esta estructura lo hace sola
+    public static Set<String> destinosDiferentes(List<Viaje> listado){
+        Set<String> lista = new HashSet<>(); //Creo el Set
+            for(int i=0;i<listado.size();i++){//Buvle para recorrer el listado
+                lista.add(listado.get(i).destino());//añado todo
+            }
+        return lista; //Devuelve todo sin repetir
+    }
     // C.- Crea un método que reciba la lista y devuelva una estructura de datos/colección
     // para saber por cada ciudad destino el número total de viajeros que llegan ese día
     // Usa el método en el main, obten las claves de la estructura devuelta e iterando por ellas imprime 
