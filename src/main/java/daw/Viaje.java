@@ -8,7 +8,7 @@ package daw;
  *
  * @author 
  */
-public record Viaje(String origen, String destino, int numeroPasajeros){
+public record Viaje (String origen, String destino, int numeroPasajeros){
 
 
 }

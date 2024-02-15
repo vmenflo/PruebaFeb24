@@ -11,6 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  *
@@ -38,6 +40,10 @@ public class Main {
         System.out.println("Recorrido del set con un iterador -----------------");
         // Se puede recorrer el set con un iterador
         //En proceso
+        
+        //Metodo cuatro
+        //Set<Viaje> listas = listaOrdenada(uno);
+        //listas.forEach(System.out::println);
 
     }
     //----------------------------------------
@@ -106,6 +112,14 @@ public class Main {
     // destinos iguales se ordenan por número de viajeros. Usa el método en el main
     // e imprime el resultado usando foreach con expresión lambda, para obtener
     // una salida como esta por cada elemento: "Destino: Estepona Viajeros: 35" 
+    
+    public static Set<Viaje> listaOrdenada(List<Viaje> listado){
+        SortedSet<Viaje> lista = new TreeSet<>();
+        for(int i=0;i<listado.size();i++){
+            lista.add(listado.get(i));
+        }
+        return lista;
+    }
     //---------------------------------------
     private static ArrayList<Viaje> getListaViajes() {
         ArrayList<Viaje> listaViajes = new ArrayList();
