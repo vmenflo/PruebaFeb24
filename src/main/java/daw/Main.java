@@ -32,10 +32,19 @@ public class Main {
         Set<String> listadoDestino = destinosDiferentes(uno);
         System.out.println("Mostrar Set Destinos: ");
         System.out.println(listadoDestino.toString());
+        //Al pulsar control espacio sobre un for la segunda opcion
+        for (Iterator<String> iterator = listadoDestino.iterator(); iterator.hasNext();) {
+            String next = iterator.next();
+            
+        }
         
         //Probar Método tres
         Map<String,Integer> listadoViajeros = numeroViajeros(uno);
         System.out.println(listadoViajeros.toString());
+        Set<String> destinos = listadoViajeros.keySet();
+        for (String object : destinos) {
+            System.out.println("Ciudad " + object + " numero pasajeros" + destinos);
+        }
         
         System.out.println("Recorrido del set con un iterador -----------------");
         // Se puede recorrer el set con un iterador
@@ -44,6 +53,8 @@ public class Main {
         //Metodo cuatro
         //Set<Viaje> listas = listaOrdenada(uno);
         //listas.forEach(System.out::println);
+        /*foreach con lambda
+        lista.forEach(e->System.out.println("Destino: " +e.destino()+"nº " + e.numeroPasajero))*/
 
     }
     //----------------------------------------
